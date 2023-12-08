@@ -1,0 +1,88 @@
+(
+'Chelonia mydas':4,
+(
+'Myripristis jacobus':4,
+'Platax teira':4,
+'Pogonias cromis':4,
+(
+'Holacanthus passer':4,
+'Pomacanthus paru':4
+)Pomacanthidae:4,
+(
+'Labroides dimidiatus':4,
+'Bodianus rufus':4
+)Labridae:4,
+'Elacatinus evelynae':4,
+(
+'Gnathanodon speciosus':4,
+'Trachinotus carolinus':4,
+'Caranx hippos':4
+)Carangidae:4,
+(
+'Epinephelus lanceolatus':4,
+'Epinephelus itajara':4
+)Epinephelus:4,
+(
+'Zebrasoma flavescens':4,
+(
+'Acanthurus leucosternon':4,
+'Acanthurus coeruleus':4
+)Acanthurus:4
+)Acanthuridae:4,
+'Abudefduf saxatilis':4,
+(
+(
+'Brachygenys chrysargyreum':4,
+'Anisotremus virginicus':4,
+'Haemulon sciurus':4
+)Haemulidae:4,
+(
+'Symphorichthys spilurus':4,
+(
+'Lutjanus griseus':4,
+'Lutjanus apodus':4
+)Lutjanus:4,
+'Ocyurus chrysurus':4
+)Lutjanidae:4
+)Lutjaniformes:4,
+'Megalops atlanticus':4
+)Actinopteri:4,
+(
+(
+'Pristis zijsron':4,
+'Rhynchobatus australiae':4,
+'Rhina ancylostoma':4
+)Rhinopristiformes:4,
+(
+'Stegostoma tigrinum':4,
+'Rhincodon typus':4,
+(
+'Eucrossorhinus dasypogon':4,
+'Orectolobus maculatus':4
+)Orectolobidae:4
+)Orectolobiformes:4,
+(
+'Taeniura meyeni':4,
+(
+'Hypanus americanus':4,
+'Bathytoshia centroura':4,
+'Himantura undulata':4,
+'Pateobatis jenkinsii':4,
+'Urogymnus asperrimus':4
+)Dasyatidae:4,
+(
+(
+'Mobula birostris':4,
+'Mobula alfredi':4,
+'Mobula hypostoma':4
+)Mobula:4,
+'Rhinoptera bonasus':4,
+'Aetobatus narinari':4
+)Myliobatidae:4
+)Myliobatiformes:4,
+(
+'Carcharhinus melanopterus':4,
+'Carcharhinus plumbeus':4
+)Carcharhinus:4
+)Chondrichthyes:4
+)Chordata:4;
