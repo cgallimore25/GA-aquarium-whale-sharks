@@ -33,9 +33,6 @@
 
 plotALLmorphs= 0; 
 
-% make a colormap
-cmap= cmocean('ice');   
-
 % specify file
 fileName= 'WS_Morphometrics_all.xlsx'; 
 
@@ -73,10 +70,6 @@ morph_std= nan(size(morph_mat));
 n_meas= morph_mat; 
 
 n_el= ns * ny * nm; 
-
-c_idx= linspace(1, size(cmap, 1), ns); % color indices
-cols= cmap(c_idx, :);                  % define some colors
-
 
 c= 1; 
 
@@ -157,10 +150,11 @@ lengths_photog_m= convlength(lengths_photog_ft, 'ft', 'm' );
 
 % plot relationship of Pre-first dorsal-fin length (PD1) & Total length (TL)
 % from Figure 2, Elasmobranch husbandry manual II, Ch. 2, pg 19
-figure; 
-scatter(log10(av_PD1), log10(av_TL))
-xlim([2.15 2.6])
-ylim([2.5 3])
+
+% figure; 
+% scatter(log10(av_PD1), log10(av_TL))
+% xlim([2.15 2.6])
+% ylim([2.5 3])
 
 
 
@@ -225,8 +219,6 @@ ylim([-.15 1.15])
 
 %% Spider plot
 
-c_idx2= ceil( linspace(1, size(cmap, 1), ns+1) ); % define some colors
-
 morphometrics= [av_TL, av_FL, av_PCL, av_PD1, weight_mat(:, 4)];
 
 spider_ax= [470, 388, 335, 198, 1328; 626, 537, 455, 258, 2000];
@@ -237,7 +229,7 @@ sp2= spider_plot_class(morphometrics);
 sp2.AxesPrecision = 0;
 sp2.AxesLabels= {'TL', 'FL', 'PCL', 'PD1', 'Weight'}; 
 sp2.AxesLimits = spider_ax;
-sp2.Color= cmap(c_idx2(1:4), :);
+sp2.Color= c2;
 sp2.LegendLabels = cellstr(u_sharks)';
 sp2.FillOption = 'on';
 sp2.FillTransparency =  0.2;  % change to 1 for figure export
