@@ -1,4 +1,5 @@
 All rights reserved for functions:
+
 'plotSpread.m', 'isEven.m', 'myErrorbar.m', 'repeatEntries.m' by Jonas (Copyright (c) 2017, https://www.mathworks.com/matlabcentral/fileexchange/37105-plot-spread-points-beeswarm-plot)
 
 'distinguishable_colors.m' by Tim Holy (Copyright (c) 2010-2011, https://www.mathworks.com/matlabcentral/fileexchange/29702-generate-maximally-perceptually-distinct-colors)
