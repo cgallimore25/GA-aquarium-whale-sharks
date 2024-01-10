@@ -1,11 +1,13 @@
 All rights reserved for functions:
-
+'circPercent.m' by Connor Gallimore (Copyright (c) 2023, https://github.com/cgallimore25/circPercent)
+'xcorrDotPlot.m' by Connor Gallimore (Copyright (c) 2024, https://github.com/cgallimore25/xcorrDotPlot)
 'plotSpread.m', 'isEven.m', 'myErrorbar.m', 'repeatEntries.m' by Jonas (Copyright (c) 2017, https://www.mathworks.com/matlabcentral/fileexchange/37105-plot-spread-points-beeswarm-plot)
-
 'distinguishable_colors.m' by Tim Holy (Copyright (c) 2010-2011, https://www.mathworks.com/matlabcentral/fileexchange/29702-generate-maximally-perceptually-distinct-colors)
-
 'spider_plot_class.m' by Moses Yoo (Copyright (c) 2020-2023, https://github.com/NewGuy012/spider_plot)
-
+'cmocean.m'
+'rm_raincloud.m'
+'Violin.m'
+'shadedErrorBar.m'
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are met:
