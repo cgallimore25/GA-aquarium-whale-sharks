@@ -38,7 +38,7 @@ rc_col= [[164 63 97] ./ 255; [.3 .3 .3]];
 
 %% Load data
 
-fileName= '18_19_Dec_Master_data_sheet_proc2.csv'; 
+fileName= 'GAA_whale_shark_master_datasheet.csv'; 
 
 opts= detectImportOptions( fileName );
 
@@ -170,6 +170,10 @@ if ~exportFig
 else
     rc= withinSubj_raincloud(spd_d_and_nd, rc_col); xlabel(spd_ax_lbl)
 end
+ax= gca; 
+
+ax.YTickLabel= {'divers\newlinepresent', 'divers\newlineabsent'};
+ax.TickLabelInterpreter= 'tex';  % change tick label interpreter
 
 [h, p, ci, stats]= ttest(spd_d_and_nd(:, 2), spd_d_and_nd(:, 1))
 
@@ -185,7 +189,7 @@ t_crit = tinv(0.95, nu);
 subplot(1, 2, 2); 
 plot(tv, tdistpdf); hold on
 scatter(t_obs, tvalpdf, "filled")
-xline(-t_crit, "--")
+xline(t_crit, "--")
 legend(["Student's t pdf", "t-Statistic", "Critical Cutoff"])
 
 
@@ -197,41 +201,50 @@ figure(2); clf;
 ps= plotSpread(slopes); 
 [xs, ys]= deal(get(ps{1, 1}, 'XData'), get(ps{1, 1}, 'YData'));
 
+m_owt2= [m_owt(1:2:3, :); m_owt(4, :); m_owt(4, :);  m_owt(5:2:7, :)];
+
 % apply a colormap centered at zero
-cs= centerColorsAtZero(ys, m_owt, 0);
+cs= centerColorsAtZero(ys, m_owt2, 0);
 
 figure(2); clf; 
 yline(0, '--'); hold on;
 scatter(xs, ys, [], ys, 'filled');  colormap(cs); 
+ylabel('\DeltaSpeed (m/sec)')
 xticks(1)
+ax= gca; 
+ax.XTickLabel= {'within-day\newlineslopes'};
+ax.TickLabelInterpreter= 'tex';  % change tick label interpreter
 xlim([0 2]);
 ylim([-0.4 0.6]);
 set(gcf, 'color', 'w');
 
 figure(3); clf; 
 circPercent([sum(pos), sum(neg)] ./ length(slopes), 2, 'color', colors); 
+title({'proportion of slopes' 'increasing vs decreasing'})
 
 
 %% HELPER FUNCTIONS--------------------------------------------------------
 
 function c= centerColorsAtZero(data, colorMatrix, centerValue)
 
-L=  length(data); 
-mx= max(data); 
-mi= min(data); 
+L=  numel(data); 
+mx= max(data(:)); 
+mi= min(data(:)); 
 
 idx= L * abs(centerValue-mi) / (mx-mi); 
 
 N= size(colorMatrix, 1);
 
 if ~rem(N, 2)         % number of elements is even
-    k= (N/2) + 1;
+    k=  N/2;
+    k2= k+1;
 else                  % number of elements is odd
     k= (N+1) / 2; 
+    k2= k; 
 end
 
 c1= interp1(1:k, colorMatrix(1:k, :), linspace(1, k, idx), 'linear');
-c2= interp1(1:k, colorMatrix(k:N, :), linspace(1, k, L - idx), 'linear');
+c2= interp1(1:k, colorMatrix(k2:N, :), linspace(1, k, L - idx), 'linear');
 
 c=  [c1; c2];
 
