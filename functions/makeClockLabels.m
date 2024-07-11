@@ -25,6 +25,11 @@
 
 function labels = makeClockLabels(t_min, t_max, n_hrs, time_type)
 
+expectedTimeTypes= {'military', 'universal', '24H', '24Hr', ...
+                    'civilian', 'regular', '12H', '12Hr'};
+
+tt_input= find(cellfun(@(c) strcmpi(c, time_type), expectedTimeTypes));
+
 label_tmp= t_min: (t_max / n_hrs) : t_max;
 label_tmp= label_tmp(1:end-1); 
 min_str_fin= repmat("00", 1, length(label_tmp)); 
@@ -47,7 +52,7 @@ else
     min_of_hr= zeros(1, length(label_tmp));
 end
 
-if strcmpi(time_type, 'military')
+if ismember(tt_input, 1:4)  % strcmpi(time_type, 'military')
     % if any of the hour digits are single, add leading zero
     hr_digits= ceil(log10(max(1, abs(hr) + 1)));  
     hr_digits(hr_digits == 0) = 1; 
@@ -55,7 +60,7 @@ if strcmpi(time_type, 'military')
     clock_labls(one_dig) = strcat("0", string(hr(one_dig)), ":", min_str_fin(one_dig)); 
     clock_labls(~one_dig) = strcat(string(hr(~one_dig)), ":", min_str_fin(~one_dig)); 
 
-elseif strcmpi(time_type, 'regular')
+else
     % add AMs and PMs, dont add leading zeros for regular time
     AMPM= min_str_fin; 
     afternoon=  label_tmp >= 12;
