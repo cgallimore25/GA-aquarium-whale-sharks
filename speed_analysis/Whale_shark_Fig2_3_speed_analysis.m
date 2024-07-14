@@ -747,12 +747,17 @@ def_c= [0 0.4470 0.7410; 0.8500 0.3250 0.0980];
 mrkrs= ["square", "^"];
 
 figure('Name', 'N obs per feed, morning vs evening');
+set(gcf, 'color', 'w')
 subplot(1, 2, 1)
 histogram(obs_per_meal_am, 'BinMethod', 'sturges'); hold on;
 histogram(obs_per_meal_pm, 'BinMethod', 'sturges');
+xlabel("n observations per feed");
+ylabel("count")
+legend(["morning", "evening"])
 subplot(1, 2, 2); hold on
 po= plotSpread(c_obs, 'distributionMarkers', mrkrs, 'distributionColors', def_c, 'xValues', c_grp);
 addSummaryStatLines(c_obs, 2, 'mean');
+xticklabels(["am", "pm"])
 
 [h, p, ci, stats]= ttest2(obs_per_meal_am, obs_per_meal_pm);
 
