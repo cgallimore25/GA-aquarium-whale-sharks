@@ -8,7 +8,7 @@ This repository contains the processed tabular data and code required to generat
 <pre>
 Gallimore C. G.*, Walton C.*, Nugent R., Fradkin M., Poppell L., Schreiber C., Coco C., Grober M., Carlson B., Dove A. D. M., Black M. P. (2024). 
   A longitudinal behavioral analysis of aquarium whale sharks (Rhincodon typus): insights into individual variation, social hierarchy, and anticipatory cues. 
-  <i>Frontiers in Marine Science</i>, *11*, 1418002. doi: [10.3389/fmars.2024.1418002](https://doi.org/10.3389/fmars.2024.1418002)
+  <i>Frontiers in Marine Science</i>, <i>11</i>, 1418002. doi: <a href="https://doi.org/10.3389/fmars.2024.1418002">10.3389/fmars.2024.1418002 </a>
 </pre>
 
 ### Description
