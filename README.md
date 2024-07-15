@@ -17,7 +17,7 @@ The [\DATA](https://github.com/cgallimore25/GA-aquarium-whale-sharks/tree/main/D
 
 ### Requirements
 
-All analyses were performed with `MATLAB` version `9.13` (R2022b) and utilize the following `toolboxes` and `version no.`:
+All analyses were performed with `MATLAB` version `9.13` (R2022b) and utilized the following `toolboxes` and `version no.`:
 1. `Statistics and Machine Learning Toolbox 12.4`
 2. `Signal Processing Toolbox 9.1`
 3. `Image Processing Toolbox 11.6`
