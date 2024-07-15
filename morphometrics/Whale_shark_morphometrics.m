@@ -174,7 +174,8 @@ m_tmp= permute(concordant_morphs, [2 3 1]);
 yL= [350 700; 300 600; 260 510]; 
 titls= ["total length", "fork length", "pre-caudal length", "combined"]; 
 
-figure; 
+figure('Name', 'Concordant morphs by time'); 
+set(gcf, 'color', 'w')
 for m= 1:3
     subplot(1, 4, m);
     tc= c2 ./ darkF(m);
@@ -223,16 +224,16 @@ morphometrics= [av_TL, av_FL, av_PCL, av_PD1, weight_mat(:, 4)];
 
 spider_ax= [470, 388, 335, 198, 1328; 626, 537, 455, 258, 2000];
 
-figure('Name', 'Shark morphmetrics');    clear sp2
-sp2= spider_plot_class(morphometrics); 
+figure('Name', 'Shark morphmetrics');    clear sp
+sp= spider_plot_class(morphometrics); 
 
-sp2.AxesPrecision = 0;
-sp2.AxesLabels= {'TL', 'FL', 'PCL', 'PD1', 'Weight'}; 
-sp2.AxesLimits = spider_ax;
-sp2.Color= c2;
-sp2.LegendLabels = cellstr(u_sharks)';
-sp2.FillOption = 'on';
-sp2.FillTransparency =  0.2;  % change to 1 for figure export
+sp.AxesPrecision = 0;
+sp.AxesLabels= {'TL', 'FL', 'PCL', 'PD1', 'Weight'}; 
+sp.AxesLimits = spider_ax;
+sp.Color= c2;
+sp.LegendLabels = cellstr(u_sharks)';
+sp.FillOption = 'on';
+sp.FillTransparency =  0.2;  % change to 1 for figure export
 
 
 %% Scale bars for Figure 1 a-b cartoon schematic
@@ -240,6 +241,11 @@ sp2.FillTransparency =  0.2;  % change to 1 for figure export
 xc= [1:(ny+1); 1:(ny+1)];
 yc= [zeros(1, ny+1); av_TL' 100];
 
-figure; 
+figure('Name', 'Length scale');  
+set(gcf, 'color', 'w')
 plot(xc, yc, '-k', 'LineWidth', 2)
 xlim([0 ny+2])
+ylabel('length(cm)')
+xticks(1:ny+1)
+xticklabels([u_sharks; "1m scale"]);
+
