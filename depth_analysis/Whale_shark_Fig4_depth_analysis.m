@@ -69,18 +69,22 @@ depth_props= depth_obs ./ sum(depth_obs, 2);  % convert to proportions
 depth_props(5, :)= nan(1, n_depths);  % pad with nans to make room for lgd
 
 [yt, xt]= ndgrid(1:n_depths, 1:n_depths); 
-diams= flipud( depth_props(1:4, :)' * 100 ); 
+diams= round( flipud( depth_props(1:4, :)' * 100 ), 1); 
 
 c_scale= round( max_normalize(diams(:)')*255 ) + 1;
 
-figure('Name', 'Depth props each shark 2'); 
+figure('Name', 'Depth props each shark'); 
 bubblechart(xt(:), yt(:), diams(:), cm(c_scale, :), 'MarkerFaceAlpha', 1); 
 bubblesize([10 60])
+bubblelim([min(diams(:)) max(diams(:))])
 xlim([0 5]); ylim([0.5 4.5]);
 xticks(1:4); xticklabels(Shark_Name)
 yticks(1:4); yticklabels(flipud(d_cats))
-bubblelegend('N Obs at Depth','Location','eastoutside')
+text(xt(:), yt(:), strcat(num2str(diams(:)), "%"), 'Color', [.55 .55 .55], ...
+     'VerticalAlignment', 'middle', 'HorizontalAlignment', 'Center');
+bubblelegend('N Obs at Depth (%)','Location','eastoutside')
 set(gca, 'XAxisLocation', 'top'); set(gcf,'color','w');
+axis equal
 
 
 %% Omnibus chi-square depth
@@ -246,7 +250,7 @@ HG2= (SDI - min(SDI)) ./ (H_max - min(SDI));
 D= sum(depth_obs .* (depth_obs-1), 2) ./ (n_obs .* (n_obs-1));
 
 % plot diversity/similarity indices
-figure; 
+figure('Name', 'Diversity & similarity indices'); 
 subplot(2, 1, 1)
 yl= yline(H_max, '--k', 'max diversity'); hold on;
 scatter(1:n_Sharks, SDI, 200, 1:n_Sharks, 'filled'); 
